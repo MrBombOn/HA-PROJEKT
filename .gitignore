@@ -1,0 +1,70 @@
+# Course reference materials (local only — do not commit)
+projekt_kovetelmenyek/
+
+# Agent / editor drafts (not official deliverables)
+.cursor/
+.vscode/
+.idea/
+*.swp
+*~
+
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+.ipynb_checkpoints/
+
+# Node (if used later)
+node_modules/
+.next/
+out/
+coverage/
+
+# Secrets and local config
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+credentials/
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Large datasets and model artifacts (keep docs; ignore binaries/data dumps)
+data/raw/
+data/processed/
+datasets/
+*.csv.gz
+*.parquet
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.joblib
+*.pt
+*.pth
+*.onnx
+*.ckpt
+models/checkpoints/
+models/weights/
+*.bin
+*.safetensors
+
+# Logs and temp
+*.log
+tmp/
+temp/
+.cache/
