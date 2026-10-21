@@ -10,7 +10,7 @@ title: "Presentation 1 — 2026-ST-02"
 <!-- @set-align center -->
 <!-- @set-width 88% -->
 
-<!-- @scale 130% -->
+<!-- @scale 125% -->
 # Hálózati anomáliák felismerése önfelügyelt gépi tanulással
 
 <!-- @gap 2 -->
@@ -19,11 +19,15 @@ Horváth Ádám · DJLZI4
 Témavezető (projektbrief szerint): Tamás STORCZ  
 Projektazonosító: **2026-ST-02**
 
+<!-- @gap 1 -->
+
+Normál forgalomból tanuló rendszer · pontszám és lista · nem blokkoló IDS
+
 <!-- @note -->
-> **FŐ MONDAT:** Normál forgalomból tanuló anomáliadetektálás, pontszámmal, két módszerrel.
-> **Mondd el:** Ki vagy, mi a projekt, brief szerinti témavezető.
-> **Fontos:** Nem IDS-blokk — kimenet lista, nem szabály.
-> **Ha kérdeznek:** 1. félév = funkcionális terv; prototípus a 2. félév.
+> **FŐ MONDAT:** Normál forgalomból tanuló anomáliadetektálás; kimenet pontszám és lista.
+> **MONDD EL:** Ki vagy, mi a projekt, brief szerinti témavezető. 1. félév = funkcionális terv.
+> **FOGALMAK:** *Anomália* = a normáltól eltérő minta (≠ támadásosztály). *Score* = soronkénti gyanúszám (nagyobb = gyanúsabb).
+> **FIGYELJ:** Ne ígérj blokkolást vagy éles SOC-ot.
 
 ---
 
@@ -36,9 +40,9 @@ Projektazonosító: **2026-ST-02**
 
 <!-- @note -->
 > **FŐ MONDAT:** Kurzus PRMD / PowerMD docs — átugorható.
-> **Mondd el:** Egy mondat, ha kell: ez a formátum referenciája.
-> **Fontos:** Ne olvass fel semmit innen.
-> **Ha kérdeznek:** Forrás a GitHub `03-presentation-1.md`.
+> **MONDD EL:** Egy mondat, ha kell: ez a formátum referenciája.
+> **FOGALMAK:** —
+> **FIGYELJ:** Ne olvass fel semmit. Forrás: GitHub `03-presentation-1.md`.
 
 ---
 
@@ -55,6 +59,8 @@ Projektazonosító: **2026-ST-02**
 
 Szokatlan hálózati mintázatok hibára, konfigurációra vagy más rendellenességre utalhatnak.
 
+A cél: rendszer, amely a **normál** forgalomból tanul, és jelzi az eltérést.
+
 ***
 
 <!-- @set-align left -->
@@ -64,13 +70,13 @@ Szokatlan hálózati mintázatok hibára, konfigurációra vagy más rendellenes
 
 Nem minden esethez van címkézett támadóminta.
 
-Mennyire tér el a flow a **normál** forgalomtól?
+Mennyire tér el a **flow** a megszokott forgalomtól?
 
 <!-- @note -->
 > **FŐ MONDAT:** A kérdés a normáltól való eltérés — nem mindenre van címke.
-> **Mondd el:** Címke a méréshez kell, nem a train célváltozója.
-> **Fontos:** Ne ígérj nulladik napi védelmet.
-> **Ha kérdeznek:** Nem felügyelt osztályozó; anomáliapontszám.
+> **MONDD EL:** Címke a méréshez kell, nem a train célváltozója. Anomália ≠ támadás.
+> **FOGALMAK:** *Flow* = egy kapcsolat / forgalmi sor jellemzőkkel. *Anomália* = eltérés a normáltól, nem automatikusan „támadás”.
+> **FIGYELJ:** Ne ígérj nulladik napi védelmet.
 
 ---
 
@@ -89,7 +95,8 @@ Mennyire tér el a flow a **normál** forgalomtól?
 
 ### Elemző
 
-Pontszámos lista áttekintése
+Pontszámos listát néz át.  
+Nincs hálózati beavatkozás.
 
 ***
 
@@ -98,7 +105,8 @@ Pontszámos lista áttekintése
 
 ### Kutató / hallgató
 
-Két módszer összehasonlítása
+Két módszert hasonlít össze  
+azonos protokollon.
 
 ***
 
@@ -107,13 +115,14 @@ Két módszer összehasonlítása
 
 ### Témavezető
 
-Módszertan átláthatósága
+Módszertan és hatókör  
+átláthatóságát ellenőrzi.
 
 <!-- @note -->
 > **FŐ MONDAT:** Elemző lista · te összehasonlítasz · témavezető a módszert nézi.
-> **Mondd el:** Nincs többfelhasználós portál.
-> **Fontos:** Bonafarm = motiváció, nem adatforrás / ügyfélígéret.
-> **Ha kérdeznek:** SOC éles használat nem az 1. félév ígérete.
+> **MONDD EL:** Nincs többfelhasználós portál. Bonafarm = motiváció, nem adatforrás.
+> **FOGALMAK:** *Streamlit* = tervezett MVP UI a listához (2. félév); CLI+export csak tartalék.
+> **FIGYELJ:** SOC éles használat nem az 1. félév ígérete.
 
 ---
 
@@ -132,11 +141,10 @@ Módszertan átláthatósága
 
 ### Benne
 
-- Benchmark adat  
-- Előfeldolgozás  
-- ≥2 módszer  
-- Metrikák  
-- Elemző UI  
+- Publikus **benchmark** adat  
+- Előfeldolgozás + normal-only tanítás  
+- ≥2 felügyelet nélküli / SSL módszer  
+- Metrikák + elemző UI  
 
 ***
 
@@ -146,42 +154,42 @@ Módszertan átláthatósága
 ### Kívül
 
 - Támadásvégrehajtás  
-- Aktív behatolás  
+- Aktív behatolás / exploit  
 - Automatikus ellenintézkedés  
 
 <!-- @note -->
 > **FŐ MONDAT:** Benne: adat → modellek → metrika → UI. Kívül: támadás / exploit / auto-mitigation.
-> **Mondd el:** Hangosan a „kívül” sort.
-> **Fontos:** UC-06 — hatókörön kívül.
-> **Ha kérdeznek:** FortiGate / blokkolás / exploit → nem.
+> **MONDD EL:** Hangosan a „kívül” sort. UC-06 — hatókörön kívül.
+> **FOGALMAK:** *Unsupervised* = nincs támadáscímke a tanuláskor. *SSL* = a feladat az adatból jön (pl. rekonstrukció), nem a támadásnév.
+> **FIGYELJ:** FortiGate / blokkolás / exploit → nem.
 
 ---
 
 <!-- @slide Sikerkritériumok -->
 <!-- @slide-theme slate cyan zinc -->
 <!-- @set-align left -->
-<!-- @set-width 85% -->
+<!-- @set-width 88% -->
 
 ## Mérhető sikerkritériumok
 
 <!-- @gap 1 -->
 
 1. Dokumentált adatbeszerzés + minőségvizsgálat  
-2. Tanítás csak normál forgalmon; értékelés elkülönítve  
+2. Tanítás **csak normál** forgalmon; értékelés elkülönítve  
 3. ≥2 módszer azonos protokollon  
-4. Metrikák: FPR-jelleg, felismerés, AUROC/AUPRC (ha van címke)  
+4. FPR-jelleg, felismerés, AUROC / PR-AUC (ha van címke)  
 5. Anomáliák listája pontszámmal (UI)
 
-<!-- @gap 2 -->
+<!-- @gap 1 -->
 
 <!-- @callout tip -->
-> **Célok** — még nincsenek CIC-mérések
+> **Célok** — még nincsenek CIC-mérések · tervezett ≠ mért
 
 <!-- @note -->
 > **FŐ MONDAT:** Öt mérhető cél — tervezett, nem mért.
-> **Mondd el:** Tervezett ≠ mért.
-> **Fontos:** Ne mondj ki CIC százalékot.
-> **Ha kérdeznek:** Számok a 2. félév mérései után.
+> **MONDD EL:** Tervezett ≠ mért. Ne mondj CIC százalékot.
+> **FOGALMAK:** *FP* = normál, amit riasztunk. *FPR* = normálak hány %-a riasztás. *TPR* = rendellenesek hány %-át találjuk. *AUROC* / *PR-AUC* = rangsor-metrikák címkézett teszten (PR-AUC őszintébb ritka osztálynál).
+> **FIGYELJ:** Számok a 2. félév mérései után.
 
 ---
 
@@ -196,14 +204,12 @@ Módszertan átláthatósága
 ***
 
 <!-- @set-align left -->
-<!-- @set-width 92% -->
-<!-- @set-scale 90% -->
+<!-- @set-width 94% -->
 
 - Flow-tábla betöltés + minőségjelentés  
-- Előfeldolgozás; normal-only train / val / test  
-- Isolation Forest + Autoencoder/SSL pontszám  
-- Validáció-alapú küszöb; rendezhető anomália-lista  
-- Összehasonlító metrikák (holdout, ha van ≥2 család)
+- Normal-only train / val / test; skálázó csak trainen  
+- IF + AE/SSL pontszám; validáció-alapú küszöb  
+- Rendezhető lista; összehasonlító metrikák (+ holdout)
 
 ***
 
@@ -221,9 +227,9 @@ flowchart LR
 
 <!-- @note -->
 > **FŐ MONDAT:** Betöltés → normal-only → két pontszám → lista.
-> **Mondd el:** Rövid lista — nem full spec.
-> **Fontos:** Részletek a specifikációban.
-> **Ha kérdeznek:** Holdout / küszöb mélyebben = P2 / ADR.
+> **MONDD EL:** Rövid lista — részletek a specifikációban.
+> **FOGALMAK:** *Normal-only* = trainen csak normál. *Val* = küszöbhöz (csak normál). *Test* = kevert mérés. *Threshold* = vágás a pontszámon; teszten nem tekerjük. *Holdout* = család kimarad train/val/küszöbből; csak végső riport.
+> **FIGYELJ:** Leakage = teszt/címke info a tanulásban vagy skálázóban.
 
 ---
 
@@ -245,8 +251,8 @@ flowchart LR
 
 ### 1 · Isolation Forest
 
-Felügyelet nélküli **baseline**  
-Gyors összehasonlítási vonal
+Felügyelet nélküli **baseline**.  
+Ritka pontokat választja le gyorsan.
 
 ***
 
@@ -255,14 +261,14 @@ Gyors összehasonlítási vonal
 
 ### 2 · Autoencoder / SSL
 
-Második **fő** módszer  
-Reprezentáció / rekonstrukció
+Második **fő** módszer.  
+Normál rekonstrukció; nagy hiba = gyanú.
 
 <!-- @note -->
 > **FŐ MONDAT:** IF baseline + AE/SSL fő irány — győztes csak mérés után.
-> **Mondd el:** Miért két módszer: összehasonlítható protokoll.
-> **Fontos:** Ne tarts IF / PyTorch előadást.
-> **Ha kérdeznek:** PCA csak dokumentált tartalék + témavezető.
+> **MONDD EL:** Miért kettő: összehasonlítható protokoll. Ne tarts PyTorch előadást.
+> **FOGALMAK:** *IF* = fa-alapú, unsupervised baseline. *AE* = összenyomja és visszaépíti a sort; hiba = score. *SSL* = önfelügyelt cél (saját bemenet), nem támadáscímke.
+> **FIGYELJ:** AE nem „biztosan jobb”. PCA csak dokumentált tartalék + témavezető.
 
 ---
 
@@ -298,9 +304,9 @@ flowchart LR
 
 <!-- @note -->
 > **FŐ MONDAT:** Load → minőség → normal-only → pontszám/lista → összehasonlítás.
-> **Mondd el:** Mutasd a Mermaid nyilat.
-> **Fontos:** Üres lista nem hiba. Hibás fájl → modell nem indul.
-> **Ha kérdeznek:** Nincs auto-mitigation a journey végén.
+> **MONDD EL:** Mutasd a Mermaid nyilat. Üres lista nem hiba.
+> **FOGALMAK:** *Leakage* = a modell/skálázó tesztből vagy címkéből tanul. *Normal-only* = a rendellenes nem cél a trainben.
+> **FIGYELJ:** Nincs auto-mitigation a journey végén. Hibás fájl → modell nem indul.
 
 ---
 
@@ -321,6 +327,7 @@ flowchart LR
 
 **CIC-IDS2017**
 
+publikus benchmark ·  
 validálandó témavezetővel
 
 ***
@@ -330,15 +337,16 @@ validálandó témavezetővel
 
 ### Korlátok
 
-- Nincs idézett CIC-teljesítmény az 1. félévben  
+- Nincs idézett CIC-teljesítmény  
 - Subset — nem teljes corpus ígéret  
 - NSL-KDD = füstteszt, nem eredmény  
+- Eloszlásváltás / aránytalanság / címkezaj  
 
 <!-- @note -->
 > **FŐ MONDAT:** CIC-IDS2017 javasolt; témavezetővel validálandó.
-> **Mondd el:** Előzetes döntés — nem lezárt.
-> **Fontos:** Nincs CIC százalék a P1-en.
-> **Ha kérdeznek:** NSL smoke ≠ projektadat.
+> **MONDD EL:** Előzetes döntés — nem lezárt. Nincs CIC % a P1-en.
+> **FOGALMAK:** *Benchmark* = publikus, címkézett referenciaadat. *CIC-IDS2017* = kiindulás (UNB CIC). *Distribution shift* = más hálózat ≠ labor. *Imbalance* = kevés támadás → accuracy csalóka. *Label noise* = címke bizonytalan.
+> **FIGYELJ:** NSL smoke ≠ projektadat. Bonafarmra nem húzzuk rá kész tényként.
 
 ---
 
@@ -359,7 +367,7 @@ flowchart LR
   G --> F2[2. félév prototípus]
 ```
 
-<!-- @gap 2 -->
+<!-- @gap 1 -->
 
 - Specifikáció: **kész** (GitHub)  
 - Decision Log · Presentation 2 (technikai mélység)  
@@ -368,6 +376,6 @@ flowchart LR
 
 <!-- @note -->
 > **FŐ MONDAT:** P1 = funkcionális terv. Tech = Presentation 2. Követés: GitHub Projects.
-> **Mondd el:** Spec már fent; következő a tech dia és a prototípus.
-> **Fontos:** Trello nem a hivatalos kurzusboard nálunk — GitHub Projects.
-> **Ha kérdeznek:** Projects URL még manuális / OPEN — nem inventálok linket.
+> **MONDD EL:** Spec már fent; következő a tech dia és a prototípus.
+> **FOGALMAK:** *Holdout* / metrikák mélyebben = P2. *Streamlit* MVP a 2. félév UI-ja.
+> **FIGYELJ:** Trello nem a hivatalos board nálunk. Projects URL OPEN — ne inventálj linket.
